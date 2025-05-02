@@ -1,11 +1,9 @@
 import { readDir, readTextFile, writeTextFile } from '@tauri-apps/plugin-fs';
-import { executableDir, homeDir, resourceDir, join, dirname } from '@tauri-apps/api/path';
+import { /*executableDir,*/ homeDir, /*resourceDir,*/ join, dirname } from '@tauri-apps/api/path';
 import { Window } from '@tauri-apps/api/window';
 import AES from 'crypto-js/aes';
 import Utf8 from 'crypto-js/enc-utf8';
 import PBKDF2 from 'crypto-js/pbkdf2';
-import EncBase64 from 'crypto-js/enc-base64';
-import SHA256 from 'crypto-js/sha256';
 
 const saveAsModal = document.getElementById('saveAsModal')!;
 const modalClose = document.getElementById('modal-close')!;

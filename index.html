@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notepad</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="menu-bar">
+    <div class="menu">
+      <button class="menu-btn">File</button>
+      <div class="dropdown">
+        <div class="dropdown-item" id="open">Open</div>
+        <div class="dropdown-item" id="save">Save</div>
+        <div class="dropdown-item" id="save-as">Save As</div>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="menu-btn">Settings</button>
+      <div class="dropdown">
+        <div class="dropdown-item" id="font-size">Font Size</div>
+        <div class="dropdown-item" id="encryption">Encryption</div>
+      </div>
+    </div>
+    <div class="save-status-indicator" id="save-status"></div>
+  </div>
+
+  <textarea id="editor" placeholder="Start typing..."></textarea>
+
+  <div id="saveAsModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="form-row">
+        <label for="save-directory">Directory:</label>
+        <input id="save-directory" type="text" readonly />
+      </div>
+
+      <div class="file-browser" id="file-browser"></div>
+
+      <div class="form-row">
+        <label for="save-filename">Filename:</label>
+        <input id="save-filename" type="text" value="untitled.txt" />
+      </div>
+
+      <div class="form-row">
+        <label for="encryption-type">Encryption Type:</label>
+        <select id="encryption-type">
+          <option value="none">None</option>
+          <option value="aes">AES</option>
+        </select>
+      </div>
+
+      <div id="encryption-fields" class="hidden">
+        <div class="form-row">
+          <label for="password">Password:</label>
+          <input id="password" type="password" />
+        </div>
+        <div class="form-row">
+          <label for="confirm-password">Confirm Password:</label>
+          <input id="confirm-password" type="password" />
+        </div>
+      </div>      
+
+      <div class="modal-actions">
+        <button id="modal-confirm">Save</button>
+        <button id="modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="fontSizeModal" class="modal hidden">
+    <div class="modal-content">
+      <label for="font-size-slider">Font Size: <span id="font-size-label">16</span>px</label>
+      <input type="range" id="font-size-slider" min="10" max="48" value="16" />
+      <div class="modal-actions">
+        <button id="font-size-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="encryptionSettingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Encryption Settings</h3>
+      <p>Supported encryption types:</p>
+      <ul>
+        <li>AES-256 with password hashing (PBKDF2)</li>
+      </ul>
+      <div class="modal-actions">
+        <button id="encryption-settings-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+}
+
+.menu-bar {
+  background: #eee;
+  display: flex;
+  padding: 4px 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu {
+  position: relative;
+  margin-right: 12px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  min-width: 120px;
+}
+
+.menu:hover .dropdown {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #ddd;
+}
+
+textarea#editor {
+  width: 100%;
+  height: calc(100vh - 40px);
+  padding: 12px;
+  font-size: 16px;
+  font-family: Consolas, monospace;
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 330px;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.file-browser {
+  background: #f0f0f0;
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.file-entry {
+  padding: 2px 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.file-entry:hover {
+  background-color: #e0e0e0;
+}
+
+#encryption-fields input {
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  display: inline-block;
+  width: auto;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  flex: 1;
+  padding: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+#fontSizeModal .modal-content {
+  width: 220px;
+  height: auto;
+  max-height: none;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: unset;
+  max-height: unset;
+}
+
+#fontSizeModal .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#font-size-slider {
+  width: 100%;
+}
+
+#fontSizeModal label {
+  text-align: center;
+  font-size: 14px;
+}
+
+.save-status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: gray;
+  margin-left: auto;
+  margin-right: 8px;
+  align-self: center;
+}
+
+#encryptionSettingsModal .modal-content {
+  width: 300px;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+}

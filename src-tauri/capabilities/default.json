@@ -1,0 +1,20 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "enables the default permissions",
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "core:default",
+    "fs:default",
+    "fs:allow-read-dir",
+    "fs:allow-write-file",
+    "fs:allow-app-write",
+    {
+      "identifier": "fs:scope",
+      "allow": ["**"]
+    },
+    "core:window:allow-set-title"
+  ]
+}

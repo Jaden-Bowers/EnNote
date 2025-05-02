@@ -1,0 +1,45 @@
+name: Build EnNote Cross-Platform
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [windows-latest, ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: all
+          override: true
+
+      - name: Install Tauri CLI
+        run: npm install --global @tauri-apps/cli
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build App
+        run: npm run tauri build
+
+      - name: Upload Binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: EnNote-${{ matrix.platform }}
+          path: |
+            src-tauri/target/release/bundle
